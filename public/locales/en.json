@@ -3,7 +3,6 @@
   "follow-us": "Follow us",
   "instagram": "Instagram",
   "linkedin": "Linkedin",
-  "nextly-is-a-free-landing-page-and-marketing-website-template": "Nextly is a free landing page & marketing website template for startups and indie projects. Its built with Next.js & TailwindCSS. And its completely open-source.",
   "play-video": "Play Video",
   "testimonial-benefit": "Share a real testimonial that hits some of your benefits from one of your popular customer.",
   "testimonial-benefit-2": "Make sure you only pick the right sentence to keep it short and simple.",
@@ -30,5 +29,14 @@
   "index_faq_bodyDescription": "Answer your customers possible questions here, it will increase the conversion rate as well as support or chat requests.",
   "cta_header": "Ready to try-out this template?",
   "cta_body": "Don't let your visitors see a poor landing.",
-  "cta_button_placeholder": "Download for Free"
+  "cta_button_placeholder": "Download for Free",
+  "footer_navigationList_item1": "Product",
+  "footer_navigationList_item2": "Features",
+  "footer_navigationList_item3": "Pricing",
+  "footer_navigationList_item4": "Company",
+  "footer_navigationList_item5": "Blog",
+  "footer_legalList_item1": "Terms",
+  "footer_legalList_item2": "Privacy",
+  "footer_legalList_item3": "Legal",
+  "footer_description": "Nextly is a free landing page & marketing website template for startups and indie projects. Its built with Next.js & TailwindCSS. And its completely open-source."
 }
