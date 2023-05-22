@@ -14,5 +14,10 @@
   "testimonial-benefit-3": "This is an awesome landing page template I&apos;ve seen. I would use this for anything.",
   "twitter": "Twitter",
   "web3templates": "Web3Templates",
-  "test-key-1": "Test Value change"
+  "test-key-1": "Test Value change",
+  "hero_header_websiteDescription": "Free Landing Page Template for startups",
+  "hero_body_description": "Nextly is a free landing page & marketing website template for startups and indie projects. Its built with Next.js & TailwindCSS. And its completely open-source.",
+  "hero_button_Github": "View on Github",
+  "hero_imageAltText": "Hero Illustration",
+  "hero_footer": "Trusted by <1>2000+</1> customers worldwide"
 }
