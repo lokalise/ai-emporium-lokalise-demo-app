@@ -15,38 +15,38 @@ const Testimonials  = () => {
         <div className="lg:col-span-2 xl:col-auto">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              {t('testimonial-benefit')}
+              {t('testimonials_blockOne_body')}
             </p>
 
             <Avatar
               image={userOneImg}
-              name="Sarah Steiner"
-              title="VP Sales at Google"
+              name={t('testimonials_blockOne_name')}
+              title={t('testimonials_blockOne_positionTitle')}
             />
           </div>
         </div>
         <div className="">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              {t('testimonial-benefit-2')}
+              {t('testimonials_blockTwo_body')}
             </p>
             <Avatar
               image={userTwoImg}
-              name="Dylan Ambrose"
-              title="Lead marketer at Netflix"
+              name={t('testimonials_blockTwo_name')}
+              title={t('testimonials_blockTwo_positionTitle')}
             />
           </div>
         </div>
         <div className="">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              {t('testimonial-benefit-3')}
+              {t('testimonials_blockThree_body')}
             </p>
 
             <Avatar
               image={userThreeImg}
-              name="Gabrielle Winn"
-              title="Co-founder of Acme Inc"
+              name={t('testimonials_blockThree_name')}
+              title={t('testimonials_blockThree_positionTitle')}
             />
           </div>
         </div>

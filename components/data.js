@@ -10,7 +10,7 @@ import {
 import benefitOneImg from "../public/img/benefit-one.png";
 import benefitTwoImg from "../public/img/benefit-two.png";
 
-import { useTranslation, Trans } from "react-i18next";
+import { Trans } from "react-i18next";
 
 const benefitOne = {
   title: <Trans i18nKey="data_benefitOne_title"></Trans>,
