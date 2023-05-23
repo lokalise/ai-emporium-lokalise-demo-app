@@ -5,15 +5,19 @@ import Container from "./container";
 import { useTranslation } from 'next-i18next';
 
 export default function Footer() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation('')
   const navigation = [
-    "Product",
-    "Features",
-    "Pricing",
-    "Company",
-    "Blog",
+    t('footer_navigationList_item1'),
+    t('footer_navigationList_item2'),
+    t('footer_navigationList_item3'),
+    t('footer_navigationList_item4'),
+    t('footer_navigationList_item5'),
   ];
-  const legal = ["Terms", "Privacy", "Legal"];
+  const legal = [
+    t('footer_legalList_item1'), 
+    t('footer_legalList_item2'), 
+    t('footer_legalList_item3')
+  ];
   return (
     <div className="relative">
       <Container>
@@ -34,7 +38,7 @@ export default function Footer() {
             </div>
 
             <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              {t('nextly-is-a-free-landing-page-and-marketing-website-template')}
+              {t('footer_description')}
             </div>
 
             <div className="mt-5">
