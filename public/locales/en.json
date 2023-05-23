@@ -55,5 +55,20 @@
   "navbar_navigation_item5": "Blog",
   "navbar_logo": "Nextly",
   "navbar_disclosurePanel_getStarted": "Get Started",
-  "navbar_menu_getStarted": "Get Started"
+  "navbar_menu_getStarted": "Get Started",
+  "popupWidget_header": "How can we help?",
+  "popupWidget_subheader": "We usually respond in a few hours",
+  "popupWidget_form_label_fullName": "Full Name",
+  "popupWidget_form_placeholder_fullName": "John Doe",
+  "popupWidget_form_required_fullName": "Full name is required",
+  "popupWidget_form_label_email": "Email Address",
+  "popupWidget_form_required_email": "Enter your email",
+  "popupWidget_form_message": "Please enter a valid email",
+  "popupWidget_form_label_message": "Your Message",
+  "popupWidget_form_placeholder_message": "Your Message",
+  "popupWidget_form_required_message": "Enter your Message",
+  "popupWidget_form_button_sendMessage": "Send Message",
+  "popupWidget_form_footer_poweredBy": "Powered by ",
+  "popupWidget_form_submitSuccess_header": "Message sent successfully",
+  "popupWidget_form_submitSuccess_return": "Go back"
 }
