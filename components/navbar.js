@@ -3,14 +3,16 @@ import ThemeChanger from "./DarkSwitch";
 import Image from "next/image"
 import { Disclosure } from "@headlessui/react";
 import LocaleSwitcher from "./localeSwitcher";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const {t} = useTranslation();
   const navigation = [
-    "Product",
-    "Features",
-    "Pricing",
-    "Company",
-    "Blog",
+    t('navbar_navigation_item1'),
+    t('navbar_navigation_item2'),
+    t('navbar_navigation_item3'),
+    t('navbar_navigation_item4'),
+    t('navbar_navigation_item5'),
   ];
 
   return (
@@ -32,7 +34,7 @@ const Navbar = () => {
                         className="w-8"
                       />
                     </span>
-                    <span>Nextly</span>
+                    <span>{t('navbar_logo')}</span>
                   </span>
                 </Link>
 
@@ -67,7 +69,7 @@ const Navbar = () => {
                       </Link>
                     ))}
                     <Link href="/" className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5">         
-                        Get Started
+                        {t('navbar_disclosurePanel_getStarted')}
                     </Link>
                   </>
                 </Disclosure.Panel>
@@ -91,7 +93,7 @@ const Navbar = () => {
 
         <div className="hidden mr-3 space-x-4 lg:flex nav__item">
           <Link href="/" className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
-              Get Started
+              {t('navbar_menu_getStarted')}
           </Link>
           <LocaleSwitcher />
           <ThemeChanger />
