@@ -3,7 +3,30 @@ import Container from "./container";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/24/solid";
 
+import { useTranslation } from "react-i18next";
+
 const Faq = () => {
+const {t} = useTranslation();
+const faqdata = [
+  {
+    question: t('faq_faqdata_question1'),
+    answer: t('faq_faqdata_answer1'),
+  },
+  {
+    question: t('faq_faqdata_answer2'),
+    answer: t('faq_faqdata_answer2'),
+  },
+  {
+    question: t('faq_faqdata_question3'),
+    answer:
+      t('faq_faqdata_answer3'),
+  },
+  {
+    question: t('faq_faqdata_quesiton4'),
+    answer:
+      t('faq_faqdata_question4'),
+  },
+];
   return (
     <Container className="!p-0">
       <div className="w-full max-w-2xl p-2 mx-auto rounded-2xl">
@@ -32,26 +55,5 @@ const Faq = () => {
     </Container>
   );
 }
-
-const faqdata = [
-  {
-    question: "Is this template completely free to use?",
-    answer: "Yes, this template is completely free to use.",
-  },
-  {
-    question: "Can I use it in a commercial project?",
-    answer: "Yes, this you can.",
-  },
-  {
-    question: "What is your refund policy? ",
-    answer:
-      "If you're unhappy with your purchase for any reason, email us within 90 days and we'll refund you in full, no questions asked.",
-  },
-  {
-    question: "Do you offer technical support? ",
-    answer:
-      "No, we don't offer technical support for free downloads. Please purchase a support plan to get 6 months of support.",
-  },
-];
 
 export default Faq;

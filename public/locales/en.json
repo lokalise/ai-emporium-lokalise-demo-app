@@ -38,5 +38,13 @@
   "footer_legalList_item1": "Terms",
   "footer_legalList_item2": "Privacy",
   "footer_legalList_item3": "Legal",
-  "footer_description": "Nextly is a free landing page & marketing website template for startups and indie projects. Its built with Next.js & TailwindCSS. And its completely open-source."
+  "footer_description": "Nextly is a free landing page & marketing website template for startups and indie projects. Its built with Next.js & TailwindCSS. And its completely open-source.",
+  "faq_faqdata_question1": "Is this template completely free to use?",
+  "faq_faqdata_answer1": "Yes, this template is completely free to use.",
+  "faq_faqdata_question2": "Can I use it in a commercial project?",
+  "faq_faqdata_answer2": "Yes, this you can.",
+  "faq_faqdata_question3": "What is your refund policy?",
+  "faq_faqdata_answer3": "If you're unhappy with your purchase for any reason, email us within 90 days and we'll refund you in full, no questions asked.",
+  "faq_faqdata_quesiton4": "Do you offer technical support?",
+  "faq_faqdata_question4": "No, we don't offer technical support for free downloads. Please purchase a support plan to get 6 months of support."
 }
