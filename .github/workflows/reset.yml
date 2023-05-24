@@ -46,8 +46,6 @@ jobs:
           VAR_LOKALISE_PROJECT_ID: ${{ vars.PROJECT_ID }}
           VAR_GITHUB_PRODUCTION_BRANCH: ${{ vars.PRODUCTION_BRANCH }} 
           VAR_LOKALISE_PRODUCTION_TAG: ${{ vars.PRODUCTION_TAG }}
-          ENV_LOKALISE_SOURCE_LANG_ISO: en
-          
         run: |
              while read file 
              do 
