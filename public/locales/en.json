@@ -97,5 +97,6 @@
     "localeSwitcher_german": "German",
     "DarkSwitch_button_lightMod": "Light Mode",
     "DarkSwitch_button_darkMode": "Dark Mode",
-    "my-test-key-1": "my test key value"
+    "my-test-key-1": "my test key value",
+    "my-test-key-2": "my test key value"
 }
