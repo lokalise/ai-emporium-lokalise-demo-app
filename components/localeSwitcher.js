@@ -27,7 +27,9 @@ const LocaleSwitcher = () => {
     return (
         <div className="flex flex-col">
             <Listbox value={selectedLanguage} onChange={setSelectedLanguage}>
-                <Listbox.Button>Languages</Listbox.Button>
+                <Listbox.Button>
+                    {t('localeSwitcher_button_languages')}
+                </Listbox.Button>
                 <Listbox.Options className="absolute top-16">
                     {languages.map((language) => (
                         <Listbox.Option
