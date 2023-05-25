@@ -33,10 +33,10 @@ jobs:
                 then
                   if [[ ${{ env.GITHUB_BRANCH_NAME }} == ${{ env.VAR_GITHUB_PRODUCTION_BRANCH }} ]]
                   then
-                    ./bin/lokalise2 --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} file upload --file="$file" --lang-iso ${{ env.ENV_LOKALISE_SOURCE_LANG_ISO }} --include-path --tags ${{ env.VAR_LOKALISE_PRODUCTION_TAG }} --tag-skipped-keys --use-automations=false --poll-timeout 60s
+                    ./bin/lokalise2 --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} file upload --file="$file" --lang-iso ${{ env.ENV_LOKALISE_SOURCE_LANG_ISO }} --include-path --tags ${{ env.VAR_LOKALISE_PRODUCTION_TAG }} --tag-skipped-keys --use-automations=true --poll-timeout 60s
                   elif [[ ${{ env.GITHUB_BRANCH_NAME }} == ${{ env.VAR_GITHUB_STAGING_BRANCH }} ]]
                   then
-                    ./bin/lokalise2 --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} file upload --file="${file}" --lang-iso ${{ env.ENV_LOKALISE_SOURCE_LANG_ISO }} --include-path --tags ${{ env.VAR_LOKALISE_STAGING_TAG }} --tag-skipped-keys --use-automations=false --poll-timeout 60s
+                    ./bin/lokalise2 --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} file upload --file="${file}" --lang-iso ${{ env.ENV_LOKALISE_SOURCE_LANG_ISO }} --include-path --tags ${{ env.VAR_LOKALISE_STAGING_TAG }} --tag-skipped-keys --use-automations=true --poll-timeout 60s
                   else
                     ./bin/lokalise2 --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} file upload --file="${file}" --lang-iso ${{ env.ENV_LOKALISE_SOURCE_LANG_ISO }} --replace-modified --include-path --tags ${{ env.GITHUB_BRANCH_NAME }} --tag-inserted-keys --tag-updated-keys --use-automations=true --poll-timeout 60s
                   fi
