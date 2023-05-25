@@ -18,7 +18,7 @@ const languages = [
 ];
 
 const LocaleSwitcher = () => {
-    const { i18n } = useTranslation();
+    const { i18n, t } = useTranslation();
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
     };
