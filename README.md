@@ -1,31 +1,30 @@
 <p align="center">
- <img src="https://user-images.githubusercontent.com/1884712/132941531-0fdd7acf-47ca-424e-b77f-1fab2e372a37.png" alt="W3T" width="100" height="41"/>
- </a> 
- <br>
- <br>
+    <a href="https://lokalise.com/" target="_blank"> 
+        <img src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/45fdeaf0-f4a7-4e3c-a6c3-9e30440ed22f" alt="Lokalise logo" width="100"/>
+    </a> 
+    <br>
+    <br>
 </p>
 
-# Nextly - Landing Page Template with Next.js & Tailwind CSS
+#  AI-Emporium - Landing Page with Next.js, i18next & Tailwind CSS
+<img width="1729" alt="image" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/1d76ddf9-5086-4de2-9ae4-d7a91b32f103">
 
-Nextly is a free landing page & marketing website template for  startups and indie projects. Its built with Next.js & TailwindCSS.
-And its completely open-source.
- 
-![image](https://user-images.githubusercontent.com/1884712/121497169-03228680-c990-11eb-975a-e77fddc43de0.png)
-
-## How to use
+## How to use?
 
 ### Step 1: Create a Copy of this Repository
 Start by forking this repository or cloning it to your GitHub account. 
 
 ### Step 2: Set Up Lokalise Project
 a. Set up the project on Lokalise with source language is **English** (en), and the target language is **German** (de).
+
 b. Enable automations for target language from machine translation when new source translation keys are added or updated.
 <img width="1291" alt="image" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/64abb810-5b7e-4ce5-9f78-1db31d66493a">
 
 
 ### Step 3: Add Variables and API Token on you GitHub project settings
 Next, update the necessary variables and your API token secret.
-a. Get Lokalise API Token <a>here</a> and add `API_TOKEN` secret as shown below picture.
+
+a. Get Lokalise API Token <a href="https://docs.lokalise.com/en/articles/1929556-api-tokens" target="_blank">here</a> and add `API_TOKEN` secret as shown below picture.
 <img width="809" alt="image" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/69703b27-8d9d-4f13-9b91-1fb0e00b1483">
 
 b. Add folowing variables 
@@ -40,41 +39,36 @@ b. Add folowing variables
 | TARGET_LANG_ISO | de |        |
 <img width="809" alt="image" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/f63523a3-6e16-4f68-a0bf-acb4fc949460">
 
-c. Configure your Github action settings' Action permissions and Workflow permissions on the settings page.
+### Step 4: Update workflow permissions 
+Navigate to your GitHub project > Settings > Actions and update workflow permissions fields. 
+a. Enable read and write permission. 
+b. All GitHub Actions to create Pull request 
+<img width="1438" alt="Screenshot 2023-05-26 at 05 10 32" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/60aefc55-990e-4464-9d39-587ea5348849">
+=======
 
-In the code and automation column under general settings, open Actions/General. 
-Confirm or change the Actions settings for Action permissions and Actions workflow to match those below. 
-
-
-<img width= "809" alt="image" src="https://raw.githubusercontent.com/silbersteine/ai-emporium-lokalise-demo-app/main/.github/readmeAssets/actionPermissions.JPG">
-
-<img width= "809" alt="image" src="https://raw.githubusercontent.com/silbersteine/ai-emporium-lokalise-demo-app/main/.github/readmeAssets/workflowPermissions.JPG">
-
-
-
-Step 4: Connect Project to Vercel
-a. Login to <a href="https://vercel.com/login" target="_blank">Vercel</a with GitHub account.
+### Step 5: Connect your GitHub Project to Vercel
+a. Signup/Login to <a href="https://vercel.com/login" target="_blank">Vercel</a with GitHub account.
 <img width="724" alt="image" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/bce87b8f-ad98-454c-a45b-1932829d2b22">
 
-b. Connect the GitHub project to Vercel. When doing this, choose a project name that accurately represents the project's purpose. 
+b. Connect your GitHub project to Vercel. When doing this, choose a project name that accurately represents the project's purpose. 
 
-### Step 5: Manual Update of Source Translation Keys to your Lokalise project 
+### Step 6: Manual Update of Source Translation Keys to your Lokalise project 
  You will need to manually push the source translation keys from the main branch. 
  Run GitHub action PUSH
  <img width="1674" alt="Screenshot 2023-05-25 at 14 56 05" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/39171228-a4be-43c0-be6b-af8f90420550">
 
 
-### Step 6: Initiate Automation on Lokalise TMS
+### Step 7: Initiate Automation on Lokalise TMS
 Trigger an automation run on the Lokalise project.
  <img width="1674" alt="Screenshot 2023-05-25 at 14 57 26" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/4380655c-c97e-421b-8219-65119633bd5d">
 
 
-### Step 7: Retrieve Source Translation Keys
+### Step 8: Retrieve Source Translation Keys
 Run GitHub action PULL
  <img width="1674" alt="Screenshot 2023-05-25 at 14 56 23" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/3eaaec6c-a8e0-4871-a122-b80726413d4b">
 
 
-### Step 8: Pull Request Review and Merge
+### Step 9: Pull Request Review and Merge
 Review the changes made by checking Vercel deployment preview link, and if they are satisfactory, merge the pull request.
 <img width="917" alt="image" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/f1712c63-5f48-4368-a4f3-c8a1fcb7c62c">
 
