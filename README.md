@@ -41,11 +41,9 @@ b. Add folowing variables
 <img width="809" alt="image" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/f63523a3-6e16-4f68-a0bf-acb4fc949460">
 
 c. Configure your Github action settings' Action permissions and Workflow permissions. 
-<img width= "809" alt="image" src="https://github/readmeAssets/workflowPermissions.JPG""
+<img width= "809" alt="image" src="https://raw.githubusercontent.com/silbersteine/ai-emporium-lokalise-demo-app/main/.github/readmeAssets/actionPermissions.JPG">
 
-<img width= "809" alt="image" src="https://github/readmeAssets/workflowPermissions.JPG"">
-
-
+<img width= "809" alt="image" src="https://raw.githubusercontent.com/silbersteine/ai-emporium-lokalise-demo-app/main/.github/readmeAssets/workflowPermissions.JPG">
 
 
 
