@@ -44,7 +44,7 @@ Navigate to your GitHub project > Settings > Actions and update workflow permiss
 a. Enable read and write permission. 
 b. All GitHub Actions to create Pull request 
 <img width="1438" alt="Screenshot 2023-05-26 at 05 10 32" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/60aefc55-990e-4464-9d39-587ea5348849">
-=======
+
 
 ### Step 5: Connect your GitHub Project to Vercel
 a. Signup/Login to <a href="https://vercel.com/login" target="_blank">Vercel</a with GitHub account.
