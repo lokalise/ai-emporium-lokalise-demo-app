@@ -3,6 +3,8 @@ run-name: Push [${{ github.ref_name }}] ${{ github.event.after }}
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
     paths:
       - "public/**en.json"
 jobs:
