@@ -9,7 +9,7 @@ import Hero from "../components/hero";
 import Navbar from "../components/navbar";
 import SectionTitle from "../components/sectionTitle";
 
-import { benefitOne, benefitTwo } from "../components/data";
+import { getBenefitOne, getBenefitTwo } from "../components/data";
 import Video from "../components/video";
 import Benefits from "../components/benefits";
 import Footer from "../components/footer";
@@ -61,8 +61,8 @@ const Home = () => {
         title={t('index_benefits_title')}>
         {t('index_benefits_bodyDescription')}
       </SectionTitle>
-      <Benefits data={benefitOne} />
-      <Benefits imgPos="right" data={benefitTwo} />
+      <Benefits data={getBenefitOne(t)} />
+      <Benefits imgPos="right" data={getBenefitTwo(t)} />
       <SectionTitle
         pretitle= {t('index_video_pretitle')}
         title={t('index_video_title')}>
