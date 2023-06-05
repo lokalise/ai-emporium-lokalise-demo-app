@@ -29,17 +29,8 @@ jobs:
       - name: Create Pull Request
         env: 
           GH_TOKEN: ${{ github.token }}
-          GITHUB_NEW_BRANCH_NAME: ${{ env.GITHUB_BRANCH_NAME }}-Lokalise-${{ github.run_id }}${{ github.run_attempt }}
         run: |
-             git checkout -b ${{ env.GITHUB_NEW_BRANCH_NAME }}
              git config --global user.name "${GITHUB_ACTOR}"
              git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+             
              git add ./\*.json
-             if [[ -z $(git status --untracked-files=no --porcelain) ]]
-             then
-              echo "No changes"
-             else
-              git commit -m 'Translations update'
-              git push --set-upstream origin ${{ env.GITHUB_NEW_BRANCH_NAME }}
-              gh pr create --base ${{ env.GITHUB_BRANCH_NAME }} --head ${{ env.GITHUB_NEW_BRANCH_NAME }} --title "Lokalise translations update" --body ""
-             fi
