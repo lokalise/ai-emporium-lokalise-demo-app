@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - "public/**en.json"
+      - "public/locales/**en.json"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
              do 
                 if [ -f $file ]
                 then
-                  ./bin/lokalise2 --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} file upload --file="${file}" --lang-iso ${{ env.ENV_LOKALISE_SOURCE_LANG_ISO }} --replace-modified --include-path --use-automations=true --poll-timeout 60s
+                  ./bin/lokalise2 --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} file upload --file="${file}" --lang-iso ${{ env.ENV_LOKALISE_SOURCE_LANG_ISO }} --replace-modified --include-path --use-automations=true --cleanup-mode --poll-timeout 60s
                 fi
              done < <(
              if [ -z ${{ env.GITHUB_CURRENT_COMMIT }} ]
