@@ -6,11 +6,8 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    if: ${{ github.ref_name == vars.PRODUCTION_BRANCH }}
-    runs-on: ubuntu-latest
-    env:
-      VAR_GITHUB_PRODUCTION_BRANCH: ${{ vars.PRODUCTION_BRANCH }} 
-      VAR_GITHUB_STAGING_BRANCH: ${{ vars.STAGING_BRANCH }} 
+    if: ${{ github.ref_name == 'main' }}
+    runs-on: ubuntu-latest 
     steps:
       - uses: actions/checkout@v3
         with:
@@ -24,35 +21,36 @@ jobs:
               then
                 git push origin --delete $branch
               fi
-             done < <(git branch -r | grep -v "\/${{ env.VAR_GITHUB_PRODUCTION_BRANCH }}$" | sed 's@.*origin/@@')
-      - name: Revert branch [${{ vars.PRODUCTION_BRANCH }}] to ${{ vars.PRODUCTION_BRANCH_RESTORE_COMMIT }} 
+             done < <(git branch -r | grep -v "\/${{ github.event.workflow_run.head_branch }}$" | sed 's@.*origin/@@')
+      - name: Revert branch [${{ github.event.workflow_run.head_branch }}] to ${{ vars.PRODUCTION_BRANCH_RESTORE_COMMIT }} 
         env:
           GH_TOKEN: ${{ github.token }}
           VAR_GITHUB_PRODUCTION_BRANCH_RESTORE_COMMIT: ${{ vars.PRODUCTION_BRANCH_RESTORE_COMMIT }} 
         run: |
              git config --global user.name "${GITHUB_ACTOR}"
              git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-             git branch ${{ env.VAR_GITHUB_PRODUCTION_BRANCH }}-backup
+             git branch ${{ github.event.workflow_run.head_branch }}-backup
              git reset --hard ${{ env.VAR_GITHUB_PRODUCTION_BRANCH_RESTORE_COMMIT }} 
-             git reset --soft ${{ env.VAR_GITHUB_PRODUCTION_BRANCH }}-backup
+             git reset --soft ${{ github.event.workflow_run.head_branch }}-backup
              if [[ -z $(git status --untracked-files=no --porcelain) ]]
              then
               echo "No changes"
              else
               git commit -m "Revert to ${{ env.VAR_GITHUB_PRODUCTION_BRANCH_RESTORE_COMMIT }}"
-              git push origin ${{ env.VAR_GITHUB_PRODUCTION_BRANCH }}
+              git push origin ${{ github.event.workflow_run.head_branch }}
              fi
       - name: Clean Lokalise project [${{ env.VAR_LOKALISE_PROJECT_ID }}]
         env:
           VAR_LOKALISE_API_TOKEN: ${{ secrets.API_TOKEN }}
           VAR_LOKALISE_PROJECT_ID: ${{ vars.PROJECT_ID }}
-          VAR_GITHUB_PRODUCTION_BRANCH: ${{ vars.PRODUCTION_BRANCH }} 
-          VAR_LOKALISE_PRODUCTION_TAG: ${{ vars.PRODUCTION_TAG }}
+          VAR_GITHUB_PRODUCTION_BRANCH: ${{ github.event.workflow_run.head_branch }} 
+          ENV_LOKALISE_SOURCE_LANG_ISO: en
+          
         run: |
              while read file 
              do 
                 if [ -f $file ]
                 then
-                    ./bin/lokalise2 --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} file upload --file="$file" --lang-iso $(basename $file .json) --replace-modified --include-path --tags ${{ env.VAR_LOKALISE_PRODUCTION_TAG }} --tag-skipped-keys --use-automations=false --cleanup-mode --poll-timeout 60s
+                    ./bin/lokalise2 --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} file upload --file="$file" --lang-iso $(basename $file .json) --replace-modified --include-path --use-automations=false --cleanup-mode --poll-timeout 60s
                 fi
-             done < <(git ls-files -- './public/locales/*.json')                    
+             done < <(git ls-files -- './locales/*.json')                    
