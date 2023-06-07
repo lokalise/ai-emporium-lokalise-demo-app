@@ -51,6 +51,6 @@ jobs:
              do 
                 if [ -f $file ]
                 then
-                    ./bin/lokalise2 --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} file upload --file="$file" --lang-iso $(basename $file .json) --replace-modified --include-path --use-automations=false --cleanup-mode --poll-timeout 60s
+                    ./bin/lokalise2 --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} file upload --file="$file" --lang-iso $(basename $file .json) --replace-modified --include-path --use-automations=false --cleanup-mode --poll-timeout 120s
                 fi
              done < <(git ls-files -- './public/locales/*.json')                    
