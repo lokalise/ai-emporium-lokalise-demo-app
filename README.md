@@ -27,17 +27,13 @@ Next, update the necessary variables and your API token secret.
 a. Get Lokalise API Token <a href="https://docs.lokalise.com/en/articles/1929556-api-tokens" target="_blank">here</a> and add `API_TOKEN` secret as shown below picture.
 <img width="809" alt="image" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/69703b27-8d9d-4f13-9b91-1fb0e00b1483">
 
-b. Add folowing variables 
+b. Add following variables 
 | Variable  |    value  |   Note    |
 | --------- | --------- | --------- |
-| PRODUCTION_BRANCH | main |        |
 |PRODUCTION_BRANCH_RESTORE_COMMIT |  | Used by Reset sceduler action       |
-| PRODUCTION_TAG | main |        |
 | PROJECT_ID |  | <a href="https://docs.lokalise.com/en/articles/1400460-projects#h_4fedc4407f" target="_black">Get Lokalise project ID</a>   from previous step    |
-| STAGING_BRANCH | stage |        |
-| STAGING_TAG | stage |        |
-| TARGET_LANG_ISO | de |        |
-<img width="809" alt="image" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/f63523a3-6e16-4f68-a0bf-acb4fc949460">
+<img width="807" alt="image" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/b34f1873-d505-45ba-8b0d-46804a5157c1">
+
 
 ### Step 4: Update workflow permissions 
 Navigate to your GitHub project > Settings > Actions and update workflow permissions fields. 
@@ -47,7 +43,7 @@ b. All GitHub Actions to create Pull request
 
 
 ### Step 5: Connect your GitHub Project to Vercel
-a. Signup/Login to <a href="https://vercel.com/login" target="_blank">Vercel</a with GitHub account.
+a. Signup/Login to <a href="https://vercel.com/login" target="_blank">Vercel</a> with GitHub account.
 <img width="724" alt="image" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/bce87b8f-ad98-454c-a45b-1932829d2b22">
 
 b. Connect your GitHub project to Vercel. When doing this, choose a project name that accurately represents the project's purpose. 
@@ -68,9 +64,9 @@ Run GitHub action PULL
  <img width="1674" alt="Screenshot 2023-05-25 at 14 56 23" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/3eaaec6c-a8e0-4871-a122-b80726413d4b">
 
 
-### Step 9: Pull Request Review and Merge
-Review the changes made by checking Vercel deployment preview link, and if they are satisfactory, merge the pull request.
-<img width="917" alt="image" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/f1712c63-5f48-4368-a4f3-c8a1fcb7c62c">
+### Step 9: Review Commit
+Review the changes made by checking Vercel deployment preview link, and if they are satisfactory.
+<img width="890" alt="image" src="https://github.com/anilkk/ai-emporium-lokalise-demo-app/assets/1124415/e8c890a5-99b8-413f-99b0-1e02c8e8f9bf">
 
 
 
