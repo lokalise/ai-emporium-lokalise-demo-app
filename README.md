@@ -81,6 +81,9 @@ Deploy this template using [Vercel](https://vercel.com?utm_source=github&utm_med
 
 Anil Kumar ( [@anilbms75](https://twitter.com/anilbms75/) )
 
+## Reference 
+This project is forked and inspired from [nextly-template](https://github.com/web3templates/nextly-template/) project.
+
 ---
 
 [![image](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)](https://vercel.com/?utm_source=web3templates&utm_campaign=oss)
