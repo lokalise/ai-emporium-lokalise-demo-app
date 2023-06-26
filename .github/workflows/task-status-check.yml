@@ -13,8 +13,13 @@ jobs:
     - name: Lokalise CLI
       run: curl -sfL https://raw.githubusercontent.com/lokalise/lokalise-cli-2-go/master/install.sh | sh
     - name: List Tasks
+      id: list_tasks_output
       env: 
         VAR_LOKALISE_API_TOKEN: ${{ secrets.API_TOKEN }}
         VAR_LOKALISE_PROJECT_ID: ${{ vars.PROJECT_ID }}
-      run: 
-        ./bin/lokalise2 task list --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} 
+      run: |
+        TASKS_DATA=$(./bin/lokalise2 task list --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} )
+        echo "TASKS_DATA=$TASKS_DATA" >> $GITHUB_ENV
+        echo "::set-output name=tasks_data::$TASKS_DATA"
+    - name: Print Tasks Data
+      run: echo "Tasks Data: ${{ steps.list_tasks_output.outputs.tasks_data }}"
