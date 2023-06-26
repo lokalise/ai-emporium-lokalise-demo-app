@@ -6,8 +6,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.list_tasks_output.outputs.
     steps:
     - uses: actions/checkout@v3
       with: 
@@ -15,7 +13,6 @@ jobs:
     - name: Lokalise CLI
       run: curl -sfL https://raw.githubusercontent.com/lokalise/lokalise-cli-2-go/master/install.sh | sh
     - name: List Tasks
-      id: list_tasks_output
       env: 
         VAR_LOKALISE_API_TOKEN: ${{ secrets.API_TOKEN }}
         VAR_LOKALISE_PROJECT_ID: ${{ vars.PROJECT_ID }}
