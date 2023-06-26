@@ -16,4 +16,4 @@ jobs:
       env: 
         VAR_LOKALISE_API_TOKEN: ${{ secrets.API_TOKEN }}
         VAR_LOKALISE_PROJECT_ID: ${{ vars.PROJECT_ID }}
-      run: ./bin/lokalise2 task list --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }}
+      run: ./bin/lokalise2 task list --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} --filter-status in_progress
