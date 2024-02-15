@@ -1,11 +1,9 @@
 name: Pull
 run-name: Pull [${{ github.event.pull_request.base.ref }}] ${{ github.event.after }}
 on: 
-  workflow_dispatch:
-  workflow_run:
-    workflows: ["Push"]
-    types: [completed]
-	
+  pull_request:
+   types:
+      - opened
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,7 +25,7 @@ jobs:
         run: |
                 git config --global user.name "${GITHUB_ACTOR}"
                 git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-                git checkout -b lokalise/${{ github.run_number }}
+                git checkout -b localise/${{ github.run_number }}
           
       - name: Commit and Push Changes
         env: 
