@@ -39,7 +39,7 @@ jobs:
               echo "No changes"
              else
               git commit -m 'Translations update'
-              git push --set-upstream origin localise/${{ github.run_number }}
+              git push --set-upstream origin lokalise/${{ github.run_number }}
              fi
 
       - name: Create Pull Request
