@@ -46,7 +46,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: localise/${{ github.run_number }}
+          branch: lokalise/${{ github.run_number }}
           base: ${{ github.event.pull_request.base.ref }}
           title: 'Translations update from Lokalise'
           body: 'Translation updates'
