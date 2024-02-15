@@ -1,0 +1,38 @@
+name: Push to Lokalise from branch
+run-name: Push [${{ github.ref_name }}] ${{ github.event.after }}
+on:
+  workflow_dispatch: 
+  pull_request:
+    types: [opened]
+    paths:
+      - 'public/locales/**en.json'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Lokalise CLI
+        run: curl -sfL https://raw.githubusercontent.com/lokalise/lokalise-cli-2-go/master/install.sh | sh
+      - name: Push
+        env:
+          GITHUB_PREVIOUS_COMMIT: ${{ github.event.before }}
+          GITHUB_CURRENT_COMMIT: ${{ github.event.after }}
+          VAR_LOKALISE_API_TOKEN: ${{ secrets.API_TOKEN }}
+          VAR_LOKALISE_PROJECT_ID: ${{ vars.PROJECT_ID }}
+          ENV_LOKALISE_SOURCE_LANG_ISO: en
+        run: |
+             while read file 
+             do 
+                if [ -f $file ]
+                then
+                  ./bin/lokalise2 --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} file upload --file="${file}" --lang-iso ${{ env.ENV_LOKALISE_SOURCE_LANG_ISO }} --replace-modified --include-path --use-automations=true --cleanup-mode --poll-timeout 120s
+                fi
+             done < <(
+             if [ -z ${{ env.GITHUB_CURRENT_COMMIT }} ]
+             then
+              git ls-files -- '**${{ env.ENV_LOKALISE_SOURCE_LANG_ISO }}.json'
+             else
+              git diff --name-only ${{ env.GITHUB_PREVIOUS_COMMIT }} ${{ env.GITHUB_CURRENT_COMMIT }} -- '**${{ env.ENV_LOKALISE_SOURCE_LANG_ISO }}.json'
+             fi | awk NF)
