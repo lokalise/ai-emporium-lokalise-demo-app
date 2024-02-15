@@ -1,13 +1,13 @@
 name: Pull
-run-name: Pull [${{ github.event_name == 'workflow_dispatch' && github.ref_name || github.event.workflow_run.head_branch }}] ${{ github.event.after }}
+run-name: Pull [${{ github.event.pull_request.base.ref }}] ${{ github.event.after }}
 on: 
   workflow_dispatch:
   workflow_run:
     workflows: ["Push"]
     types: [completed]
+	
 jobs:
   build:
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch'}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,24 +22,31 @@ jobs:
           VAR_LOKALISE_PROJECT_ID: ${{ vars.PROJECT_ID }}
         run: |
              ./bin/lokalise2 --token ${{ env.VAR_LOKALISE_API_TOKEN }} --project-id ${{ env.VAR_LOKALISE_PROJECT_ID }} file download --format json --filter-langs=de --original-filenames=true --directory-prefix=/
-      - name: Commit
+            
+      - name: Setup Git and Create New Branch
+        run: |
+                git config --global user.name "${GITHUB_ACTOR}"
+                git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+                git checkout -b lokalise/${{ github.run_number }}
+          
+      - name: Commit and Push Changes
         env: 
           GH_TOKEN: ${{ github.token }}
         run: |
-             git config --global user.name "${GITHUB_ACTOR}"
-             git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
              git add ./public/locales/\*.json
              if [[ -z $(git status --untracked-files=no --porcelain) ]]
              then
               echo "No changes"
              else
               git commit -m 'Translations update'
-              git push origin "${GITHUB_HEAD_REF}"
+              git push --set-upstream origin localise/${{ github.run_number }}
              fi
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: "${{ github.head_ref }}"
-          title: 'Translations update from lokalise'
+          branch: localise/${{ github.run_number }}
+          base: ${{ github.event.pull_request.base.ref }}
+          title: 'Translations update from Lokalise'
           body: 'Translation updates'
