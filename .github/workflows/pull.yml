@@ -1,4 +1,4 @@
-name: Pull
+name: Pull translated files and open pull request
 run-name: Pull [${{ github.event.pull_request.base.ref }}] ${{ github.event.after }}
 on: 
   workflow_run:
