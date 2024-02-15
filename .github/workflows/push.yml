@@ -1,4 +1,4 @@
-name: Push
+name: Push to Lokalise from branch
 run-name: Push [${{ github.ref_name }}] ${{ github.event.after }}
 on:
   workflow_dispatch: 
