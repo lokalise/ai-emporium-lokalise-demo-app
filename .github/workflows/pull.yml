@@ -4,13 +4,15 @@ on:
   workflow_dispatch:
   workflow_run:
     workflows: ["Push"]
-    types: completed
+    types: [completed]
 jobs:
   build:
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch'}}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+      - name: Sleep for 10 seconds
+        run: sleep 10
       - name: Lokalise CLI
         run: |
           curl -sfL https://raw.githubusercontent.com/lokalise/lokalise-cli-2-go/master/install.sh | sh
@@ -32,5 +34,12 @@ jobs:
               echo "No changes"
              else
               git commit -m 'Translations update'
-              git push origin main
+              git push origin "${GITHUB_HEAD_REF}"
              fi
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: "${{ github.head_ref }}"
+          title: 'Translations update from lokalise'
+          body: 'Translation updates'
